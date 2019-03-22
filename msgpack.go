@@ -49,7 +49,8 @@ func NewMsgpackRPCClient(c net.Conn) RPCClient {
 }
 
 func getHandle() codec.MsgpackHandle {
-    h := codec.MsgpackHandle{RawToString: true}
-    h.MapType = reflect.TypeOf(map[string]interface{}(nil))
-    return h
+    var mh codec.MsgpackHandle
+    mh.RawToString = true
+    mh.MapType = reflect.TypeOf(map[string]interface{}(nil))
+    return mh
 }
